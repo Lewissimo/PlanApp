@@ -1,0 +1,36 @@
+@import '../config';
+
+.header-box{
+    background-color: $color1;
+}
+
+.navbar-toggler{
+    color: $color2;
+}
+
+
+.navbar-nav{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.nav-item{
+    font-weight: bold;
+}
+
+.nav-link{
+    color: $color2;
+    transition: .3;
+}
+
+.nav-link:hover{
+    color: $color3;
+    text-decoration: none;
+    
+}
+
+.logo-icon{
+    font-size: 2em !important;
+    color: $color2;
+}

@@ -1,0 +1,40 @@
+@import '../_config.scss';
+.home-box{
+    width: 90%;
+    margin: 80px auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+
+.option-link{
+    text-decoration: none;
+    color: $color5;
+    display: flex;
+    justify-content: center;
+    transition: .3s;
+    &:hover{
+        transform: rotateZ(-4deg);
+    }
+
+
+    .shopApp-icon{
+        font-size: 8em;
+    }
+
+    .option{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 200px;
+        height: 200px;
+        // margin: 7px;
+        // padding: 10px;
+        h3{
+            font-size: 1.2em;
+        }
+    }
+}
+
