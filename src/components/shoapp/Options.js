@@ -8,7 +8,6 @@ const Options = () => {
         <Option />
         <Option />
         <Option />
-        <Option />
     </div>
   )
 }

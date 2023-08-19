@@ -7,8 +7,7 @@
     @include appBox($color1);
     height: 600px;
     width: clamp(220px, 90%, 700px);
-    overflow: auto;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .swiper-pagination-bullet {

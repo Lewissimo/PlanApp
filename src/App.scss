@@ -1,0 +1,17 @@
+.box-form{
+    width: clamp(140px, 80%, 500px);
+}
+
+
+.App{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+
+.card-form{
+    height: 500px;
+}

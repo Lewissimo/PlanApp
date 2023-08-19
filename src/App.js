@@ -1,23 +1,38 @@
+import Logged from './LoggedInApp';
 import './App.scss';
-import Header from './components/Header';
-import Home from './components/Home';
-import ShopApp from './components/shoapp/ShopApp';
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-
-
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, A11y } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import 'swiper/css/scrollbar';
+import Register from './Register';
+import SingIn from './SingIn';
 function App() {
+
+  const app_options_menu = ['Rejestracja', 'Logowanie'];
+
   return (
-    <Router>
-      <div className="App">
-        <Header />
-       
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/zakupyApp' element={<ShopApp />} />
-        <Route path='/calendarApp' element={<div></div>} />
-      </Routes> 
-      </div>
-    </Router>
+    // <AuthProvider>
+    <div className='App'>
+      <div className='box-form'>
+        <Swiper
+        className='box-form-swiper'
+        modules={[ Pagination, A11y]}
+        spaceBetween={50}
+        slidesPerView={1}
+        pagination={{ clickable: true, renderBullet: (index, className) => {
+        return `<span class="${className}">${app_options_menu[index]}</span>`;
+        } }}
+        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => console.log('slide change')}
+      >
+          <SwiperSlide><Register /></SwiperSlide>
+          <SwiperSlide><SingIn /></SwiperSlide>
+      </Swiper>
+    </div>
+  </div>
+  // </AuthProvider>
   );
 }
 

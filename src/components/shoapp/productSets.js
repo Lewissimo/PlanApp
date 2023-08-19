@@ -1,9 +1,11 @@
 import React from 'react'
-
+import './ShopApp.scss'
 const productSets = () => {
   return (
-    <div className='productSets'>
-      abcabc
+    <div className='options'>
+      <div className='header'>
+        
+      </div>
     </div>
   )
 }

@@ -5,6 +5,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import NoteAltIcon from '@mui/icons-material/NoteAlt';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+import ParkIcon from '@mui/icons-material/Park';
 const Home = () => {
   return (
     <div className='home-box row'>
@@ -30,6 +31,12 @@ const Home = () => {
         <div className='option'>
             <SportsEsportsIcon className='shopApp-icon'/>
             <h3 className='option-title'>MiniGierkiApp</h3>
+        </div>
+      </Link>
+      <Link to='/zakupyapp' className='option-link col-12 col-sm-6 col-lg-4 col-xl-3'>
+        <div className='option'>
+            <ParkIcon className='shopApp-icon'/>
+            <h3 className='option-title'>ŚwiętaApp</h3>
         </div>
       </Link>
       
