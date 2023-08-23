@@ -8,31 +8,39 @@ import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import Register from './Register';
 import SingIn from './SingIn';
-function App() {
+import MyRegLogProvider from './firebase-config/AuthContext';
+import { useState } from 'react';
 
+function App() {
+  const [logRegMess, setLogRegMess] = useState('');
   const app_options_menu = ['Rejestracja', 'Logowanie'];
+  const [swiper, setSwiper] = useState(null);
+
 
   return (
-    // <AuthProvider>
-    <div className='App'>
-      <div className='box-form'>
-        <Swiper
-        className='box-form-swiper'
-        modules={[ Pagination, A11y]}
-        spaceBetween={50}
-        slidesPerView={1}
-        pagination={{ clickable: true, renderBullet: (index, className) => {
-        return `<span class="${className}">${app_options_menu[index]}</span>`;
-        } }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log('slide change')}
-      >
-          <SwiperSlide><Register /></SwiperSlide>
-          <SwiperSlide><SingIn /></SwiperSlide>
-      </Swiper>
+    <MyRegLogProvider>
+      <div className='App'>
+        <div className='box-form'>
+          {logRegMess!==''?<h2 className='logSysMessage'>{logRegMess}</h2>:null}
+        
+          <Swiper
+          
+          className='box-form-swiper'
+          modules={[ Pagination, A11y]}
+          spaceBetween={50}
+          slidesPerView={1}
+          onSwiper={setSwiper}
+          pagination={{ clickable: true, renderBullet: (index, className) => {
+          return `<span class="${className}">${app_options_menu[index]}</span>`;
+          } }}
+
+        >
+            <SwiperSlide>{<Register swiper={swiper} logRegMess={setLogRegMess}/>}</SwiperSlide>
+            <SwiperSlide><SingIn /></SwiperSlide>
+        </Swiper>
+      </div>
     </div>
-  </div>
-  // </AuthProvider>
+  </MyRegLogProvider>
   );
 }
 

@@ -42,3 +42,22 @@ a{
 ::-webkit-scrollbar-thumb {
     background: $color1;
 }
+
+@keyframes show {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+
+@keyframes errButtonAnim {
+    from{
+        background-color: rgb(255, 0, 0);
+    }
+    to{
+        background-color: #0d6efd;
+    }
+}

@@ -1,3 +1,5 @@
+@import './config';
+
 .box-form{
     width: clamp(140px, 80%, 500px);
 }
@@ -10,8 +12,26 @@
     height: 100vh;
 }
 
+.circBox{
+    .progressSign{
+        margin: 3px;        
+    }
+    display: flex;
+    justify-content: center;
+}
 
+
+
+.logSysMessage{
+
+    text-align: center;
+    animation: show 2s ease-in-out;
+    
+}
 
 .card-form{
     height: 500px;
+    .clicked{
+        animation: errButtonAnim .8s ease-in-out;
+    }
 }

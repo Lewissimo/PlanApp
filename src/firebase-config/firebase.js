@@ -1,16 +1,20 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
+
+
+
 const firebaseConfig = {
-  apiKey: "AIzaSyBgzAtIe0uvvCHBfX3tcLAjZjZu44362M0",
-  authDomain: "planowanko-ce87c.firebaseapp.com",
-  projectId: "planowanko-ce87c",
-  storageBucket: "planowanko-ce87c.appspot.com",
-  messagingSenderId: "165547680535",
-  appId: "1:165547680535:web:25100ec58fea1be4e20d52",
-  measurementId: "G-L3PFWZ6C3T"
+  apiKey: "AIzaSyB5X10qs1uBfT62XHgUw72_oQZFe8c0-Qw",
+  authDomain: "planowankoapp.firebaseapp.com",
+  projectId: "planowankoapp",
+  storageBucket: "planowankoapp.appspot.com",
+  messagingSenderId: "51677663191",
+  appId: "1:51677663191:web:150e88e52d15a39ee9c592",
+  measurementId: "G-5DKTWGLSJ8"
 };
 
 const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
-// export default app
+export const db = getFirestore;
