@@ -1,0 +1,73 @@
+@import '../../config';
+
+
+.messages-box{
+    @include appBox($color1);
+    width: clamp(300px, 80%, 900px);
+    display: flex;
+
+    .chats-space{
+        background-color: $color1;
+        width: 180px;
+        .message-box{
+            background-color: $color3;
+            border-radius: 200px;
+            margin: 9px 5px;
+            margin-left: 0;
+            
+            .chat-compo-box{
+                display: flex;
+                align-items: center;
+
+                .name-box{
+                    margin: 0 4px;
+                    font-weight: bold;
+                    font-size: .7em;
+                }
+
+
+
+                .message-photo{
+    
+                    width: 40px;
+                    border-radius: 50%;
+                }
+            }
+
+        }
+
+    }
+
+
+
+    .chat-space{
+        // border: 2px solid black;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        .messages-space{
+            width: 100%;
+            // border: 2px solid black;
+            
+            height: 500px;
+        }
+        .writing-messages-space{
+            display: flex;
+            align-items: center;
+            border-top: 2px solid $color5;
+            textarea{
+                width: 100%;
+                resize: none;
+                border: none;
+                padding: 8px;
+
+                &:focus{
+                    border: none;
+                    outline: none;
+                }
+            }
+            // border: 2px solid beige;
+        }
+    }
+
+}

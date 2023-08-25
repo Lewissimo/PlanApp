@@ -1,3 +1,23 @@
+@import '../../config';
+
+
+.friendsListBox{
+    .navbar{
+        li{
+            display: flex;
+            justify-content: center;
+            margin: 3px;
+            text-align: center;
+                &:first-child{
+                    position: relative;
+                    .but1{
+                        position: absolute;
+                    }
+                }
+        }
+    }
+}
+
 .f-search-inp{
     height: 30px;
     width: 60px;
@@ -11,14 +31,32 @@
     gap: 8px;
     margin-right: 10px;
     user-select: none;
+    cursor: pointer;
+    .photo-box{
+        position: relative;
+        span{
+            color: $color2;
+            background-color: red;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .8em;
+            border-radius: 50%;
+            position: absolute;
+            right: 0;
+            width: 20px;
+            height: 20px;
+            bottom: 0;
+            z-index: 100;
+            font-weight: bold;
+        }
     &:hover{
         .chat-photo{
             transform: scale(1.02);
-            cursor: pointer;
+        }
         }
 
         .chat-name-box{
-            cursor: pointer;
             transform: scale(1.02);
         }
 
@@ -33,6 +71,10 @@
         overflow: hidden;
         transition: 1s;
         position: relative;
+
+        .chatName{
+            width: 120px;
+        }
         
     }
     

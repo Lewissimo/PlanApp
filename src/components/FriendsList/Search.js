@@ -9,7 +9,7 @@ const Search = ({isFocused, setIsFocused}) => {
   return (
     <div class="navbar-brand">
             <input style={{ width: isFocused ? '200px' : '60px' }} onFocus={onFocusHandle} className='f-search-inp search-inp inp-text' type='search' />
-        <SearchIcon className='but1 search-icon'/>      
+            <SearchIcon className='but1 search-icon'/>      
     </div>
   )
 }

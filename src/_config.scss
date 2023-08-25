@@ -6,10 +6,11 @@ $color5: #090003;
 
 
 @mixin appBox ($main-color){
-    margin: 80px auto;
+    margin: auto;
+    margin-top: 50px;
     border-radius: 6px;
     border: 6px solid $main-color;
-    width: 70%;
+    width: clamp(200px, 90%, 700px);
 
     position: relative;
 

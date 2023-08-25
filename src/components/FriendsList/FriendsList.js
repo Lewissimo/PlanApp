@@ -4,9 +4,7 @@ import Search from './Search'
 import FriendChat from './FriendChat'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import { width } from '@mui/system';
 const FriendsList = () => {
-  console.log(window.innerWidth);
   const [isInit, setIsInit] = useState(true);
   const [isFocused, setIsFocused] = useState(); 
   
@@ -30,12 +28,10 @@ const FriendsList = () => {
       
           if( (window.innerWidth < 992) && (screenState === 'huge')){ 
   
-          console.log('in small');
           setIsFocused(true);
           setScreenState('small');
         }
         if (window.innerWidth >= 992 && (screenState === 'small')){
-          console.log('in huge');
   
           setIsFocused(false);
           setScreenState('huge');
@@ -43,7 +39,7 @@ const FriendsList = () => {
         
     }
     window.addEventListener('resize', handleResize);
-  },[isFocused, setIsFocused, screenState, setScreenState])
+  },[isInit, setIsInit, isFocused, setIsFocused, screenState, setScreenState])
     
   
 
