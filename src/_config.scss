@@ -15,6 +15,35 @@ $color5: #090003;
 
 }
 
+@mixin genAppNav($color1, $color2){
+    background-color: $color1;
+    .navbar-toggler{
+        background-color: $color1;
+    }
+    .navbar-nav{
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+        .friend-option{
+            color: $color2;
+        }
+    }
+    .nav-item{
+        font-weight: bold;
+        .nav-link{
+            color: aliceblue;
+        }
+        .nav-link:hover{
+            color: $color5;
+            text-decoration: none;
+            
+        }
+    }
+
+    
+}
+
+
 .but1{
     color: inherit;
     &:hover{

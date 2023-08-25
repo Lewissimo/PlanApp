@@ -15,23 +15,25 @@ const ShopApp = () => {
   const app_options_menu = ['Produkty', 'Zestawy']
 
   return (
-    <div className='shopApp-box'>
-      <HeaderShopApp />
-      <Swiper
-      // install Swiper modules
-      modules={[ Pagination, A11y]}
-      spaceBetween={50}
-      slidesPerView={1}
-      // navigation
-      pagination={{ clickable: true, renderBullet: (index, className) => {
-        return `<span class="${className}">${app_options_menu[index]}</span>`;
-      } }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}
-    >
-        <SwiperSlide><Options /></SwiperSlide>
-        <SwiperSlide><ProductsSets /></SwiperSlide>
-    </Swiper>
+    <div className='shopAppPack'>
+      <div className='shopApp-box'>
+        <HeaderShopApp />
+        <Swiper
+        // install Swiper modules
+        modules={[ Pagination, A11y]}
+        spaceBetween={50}
+        slidesPerView={1}
+        // navigation
+        pagination={{ clickable: true, renderBullet: (index, className) => {
+          return `<span class="${className}">${app_options_menu[index]}</span>`;
+        } }}
+        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => console.log('slide change')}
+      >
+          <SwiperSlide><Options /></SwiperSlide>
+          <SwiperSlide><ProductsSets /></SwiperSlide>
+      </Swiper>
+      </div>
     </div>
     )
   

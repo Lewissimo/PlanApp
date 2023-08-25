@@ -17,13 +17,16 @@ const Header = () => {
             <div className="collapse navbar-collapse justify-content-end" id="mainNavbar">
             <ul className="navbar-nav col-12 col-lg-6">
                 <li className="nav-item">
-                <Link className="nav-link" to="/">Strona Główna</Link>
+                  <Link className="nav-link" to="/">Strona Główna</Link>
                 </li>
                 <li className="nav-item">
-                <Link className="nav-link" to="/features">Galeria</Link>
+                  <Link className="nav-link" to="/profile"><div>Wiadomości<span className='amount-of-mess'></span></div></Link>
                 </li>
                 <li className="nav-item">
-                <Link className="nav-link" to="/pricing">Ustawienia</Link>
+                  <Link className="nav-link" to="/friends">Szukaj znajomych</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/setting">Ustawienia</Link>
                 </li>
             </ul>
             </div>

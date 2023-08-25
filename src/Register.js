@@ -54,8 +54,10 @@ const Register = ({swiper, logRegMess}) => {
      const handleSubmit = async (e) => {
         e.preventDefault();
         await setButtonState('waiting');
-        const regResult = await auth.singUp(emailRef.current.value, passwordRef.current.value, repeatPasswordRef.current.value);
+        const regResult = await auth.singUp(emailRef.current.value, passwordRef.current.value, repeatPasswordRef.current.value, f_nameTextInpState, l_nameTextInpState);
         if (regResult === 0) {
+            console.log(auth.user);
+
             setButtonState('initial');
             logRegMess('Rejestracja Pomyślna'); 
             swiper.slideTo(1);

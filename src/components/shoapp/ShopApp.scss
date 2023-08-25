@@ -2,14 +2,18 @@
 
 
 
-
-.shopApp-box{
-    @include appBox($color1);
-    height: 600px;
-    width: clamp(220px, 90%, 700px);
-    overflow: hidden;
+.shopAppPack{
+    height: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .shopApp-box{
+        @include appBox($color1);
+        height: 600px;
+        width: clamp(220px, 90%, 700px);
+        overflow: hidden;
+    }
 }
-
 .swiper-pagination-bullet {
     background-color: transparent;
     border: 1px solid #000;

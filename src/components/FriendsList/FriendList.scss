@@ -1,0 +1,47 @@
+.f-search-inp{
+    height: 30px;
+    width: 60px;
+    transition: 1s;
+    font-size: .7em;
+}
+
+.chat-op-box{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 10px;
+    user-select: none;
+    &:hover{
+        .chat-photo{
+            transform: scale(1.02);
+            cursor: pointer;
+        }
+
+        .chat-name-box{
+            cursor: pointer;
+            transform: scale(1.02);
+        }
+
+
+    }
+    .chat-photo{
+        width: 40px;
+        transition: .1s
+    }
+
+    .chat-name-box{
+        overflow: hidden;
+        transition: 1s;
+        position: relative;
+        
+    }
+    
+    
+}
+.switchArrow{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
