@@ -1,7 +1,7 @@
 @import '../config';
 
 .header-box{
-    @include genAppNav($color1, $color4);
+    @include genAppNav;
 }
 
 
@@ -10,5 +10,5 @@
 
 .logo-icon{
     font-size: 2em !important;
-    color: $color2;
+    color: map-get($main-colors, main-light-font-color);
 }

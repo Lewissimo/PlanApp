@@ -1,0 +1,97 @@
+@import '../../config';
+
+.findFriends{
+    padding: 0 20px;
+    @include appBox(map-get($main-colors, header-background-and-App-borders));
+    width: clamp(250px, 100%, 1500px);
+    margin-top: 5px;
+    overflow-y: auto;
+    max-height: 700px;
+    .swiper-pagination .swiper-pagination-bullet{
+        height: 45px;
+        width: 120px;
+    }
+
+
+    .friend-op-box{
+        margin-top: 64px;
+        border-radius: 5px;
+    }
+    .search-container{
+        border-bottom: 4px solid map-get($main-colors, default-apps-color );
+        .navbar-brand{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            >input{
+                width: 130px;
+            }
+        }
+    }
+    .navbar-brand{
+        transform: translateX(19px);
+    }
+    
+
+    .pop-friend-list{
+        display: flex;
+        justify-content: center;
+    }
+    .friend-option{
+        border: 6px solid map-get($main-colors, header-background-and-App-borders );
+        background-color: map-get($main-colors, default-apps-color);
+        width: 190px;
+        height: 190px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        margin: 15px auto;
+        .photo-container{
+            
+            justify-self: flex-start;
+            width: 100px;
+            height: 100px;
+            position: relative;
+            img{
+                border-radius: 50%;
+                height: 100%;
+            }
+            .op-ico-container{
+                border-radius: 50%;
+                width: 25px;
+                height: 25px;
+                background-color: map-get($main-colors, main-page-background);
+                display: flex;
+                align-items: center;
+                border: 2px solid map-get($main-colors, default-apps-color );
+                justify-content: center;
+                &:hover{
+                    background-color: map-get($main-colors, default-apps-color );
+                    color: map-get($main-colors, font-hover-dark);
+                    cursor: pointer;
+                }
+                >*{
+                    width: 20px;
+                }
+            }
+            .add-remove-container{
+                position: absolute;
+                right: 0;
+                bottom: 16px;
+            }
+            .mess-s-container{
+                position: absolute;
+                right: 14px;
+                bottom: 0px;
+            }
+
+        }
+        .name{
+            color: map-get($main-colors, main-light-font-color);
+
+        }
+        
+    }
+}

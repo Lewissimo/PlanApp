@@ -1,4 +1,5 @@
 import './Logged.scss';
+import FindFriends from './components/FindFriends/FindFriends';
 import FriendsList from './components/FriendsList/FriendsList';
 import Header from './components/Header';
 import Home from './components/Home';
@@ -16,6 +17,7 @@ const LoggedInApp = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/messages' element={<Messages />} />
+        <Route path='/friends' element={<FindFriends />} />
         
         
         

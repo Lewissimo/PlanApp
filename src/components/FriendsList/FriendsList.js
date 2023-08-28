@@ -47,7 +47,7 @@ const FriendsList = () => {
     <div className='friendsListBox'>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <div className='d-none d-lg-block'><Search  isFocused={isFocused} setIsFocused={setIsFocused}  /></div>
+    <div className='d-none d-lg-block'><Search  isFocused={isFocused} setIsFocused={setIsFocused}  chatSearch={true}/></div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#friendList" aria-controls="friendList" aria-expanded="false">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -55,7 +55,7 @@ const FriendsList = () => {
       <ul class="navbar-nav">
   
         <li className='nav-item d-block d-lg-none'>
-          <Search isFocused={isFocused} setIsFocused={setIsFocused} />
+          <Search isFocused={isFocused} setIsFocused={setIsFocused} chatSearch={true}/>
         </li>
 
         <li class="nav-item">

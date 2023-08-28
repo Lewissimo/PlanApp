@@ -1,5 +1,7 @@
 import Logged from './LoggedInApp';
 import './App.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, A11y } from 'swiper/modules';
 import 'swiper/css';
@@ -11,9 +13,6 @@ import SingIn from './SingIn';
 import MyRegLogProvider from './firebase-config/AuthContext';
 import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import ShopApp from './components/shoapp/ShopApp';
-import Home from './components/Home';
-import Header from './components/Header';
 
 function App() {
   const [logRegMess, setLogRegMess] = useState('');

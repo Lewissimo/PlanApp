@@ -2,18 +2,40 @@
 
 
 .messages-box{
-    @include appBox($color1);
+    @include appBox(map-get($main-colors, header-background-and-App-borders));
     width: clamp(300px, 80%, 900px);
     display: flex;
 
     .chats-space{
-        background-color: $color1;
+        background-color: map-get($main-colors, header-background-and-App-borders);
         width: 180px;
+        .chat-but{
+            transition: all .4s;
+            &:hover:not(#chosen){
+                transform: translateX(4px);
+                .message-box{
+
+                    background-color: map-get($main-colors, chats-color-chosen);
+                }
+            }
+        }
+        #chosen{
+            transform: translateX(4px);
+            .message-box{
+                background-color: map-get($main-colors, chats-color-chosen);
+            }
+        }
         .message-box{
-            background-color: $color3;
+            background-color: map-get($main-colors, main-page-background);
+            user-select: none;
+            border: 1px solid map-get($main-colors, border-color);
+
+
             border-radius: 200px;
             margin: 9px 5px;
             margin-left: 0;
+            cursor: pointer;
+
             
             .chat-compo-box{
                 display: flex;
@@ -41,32 +63,10 @@
 
 
     .chat-space{
-        // border: 2px solid black;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        .messages-space{
-            width: 100%;
-            // border: 2px solid black;
-            
-            height: 500px;
-        }
-        .writing-messages-space{
-            display: flex;
-            align-items: center;
-            border-top: 2px solid $color5;
-            textarea{
-                width: 100%;
-                resize: none;
-                border: none;
-                padding: 8px;
-
-                &:focus{
-                    border: none;
-                    outline: none;
-                }
-            }
-            // border: 2px solid beige;
+        @include chatSpace;
+        @include messages;
+        .messages-space div{
+            padding: 5px;
         }
     }
 

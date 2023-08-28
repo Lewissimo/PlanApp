@@ -2,6 +2,7 @@
 
 
 .friendsListBox{
+
     .navbar{
         li{
             display: flex;
@@ -26,16 +27,18 @@
 }
 
 .chat-op-box{
+    z-index: 100;
     display: flex;
     align-items: center;
     gap: 8px;
     margin-right: 10px;
     user-select: none;
+    position: relative;
     cursor: pointer;
     .photo-box{
         position: relative;
         span{
-            color: $color2;
+            color: white;
             background-color: red;
             display: flex;
             align-items: center;
@@ -62,6 +65,41 @@
 
 
     }
+
+    .messages-chat{
+        animation: .2s show;
+        position: absolute;
+        bottom: -290px;
+        min-width: 180px;
+        height: 280px;
+        left: 0;
+        @include chatSpace;
+        border: 2px solid black;
+        border-radius: 20px;
+        z-index: 100;
+        overflow: hidden;
+        .messages-space{
+            font-weight: bold;
+            background-color: map-get($main-colors, main-page-background);
+            overflow-y: auto;
+            font-size: .7em;
+           @include messages;
+
+        }
+        .writing-messages-space{
+            
+            background-color: map-get($main-colors, header-background-and-App-borders);
+            
+                color: map-get($main-colors, font-hover-dark);
+            
+        }
+        textarea{
+            background-color: unset;
+            color: map-get($main-colors, font-hover-dark);
+        }
+
+    }
+
     .chat-photo{
         width: 40px;
         transition: .1s
@@ -86,4 +124,5 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    
 }

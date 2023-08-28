@@ -5,12 +5,14 @@
     display: flex;
     justify-content: center;
     margin-top: 80px;
+    animation: show .5s;
+
 }
 
 
 .option-link{
     text-decoration: none;
-    color: $color5;
+    color: map-get($main-colors, main-font-color);
     display: flex;
     justify-content: center;
     transition: .3s;

@@ -1,41 +1,61 @@
-$color1: #36366f;
-$color2: hsl(280, 27%, 98%);
-$color3: #fcfdfc;
-$color4: #ff78af;
-$color5: #090003;
+
+$main-colors: (
+    header-background-and-App-borders: #36366f,
+    border-color: black,
+    main-page-background: #fcfdfc,
+    main-font-color: #090003,
+    main-shadow: rgb(188, 188, 188),
+    main-light-font-color: #fcfdfc, 
+    font-hover-dark: #fcfdfc,
+    font-hover-light: #891139,
+    default-apps-color: #090003,
+    chats-color-chosen: rgb(131, 240, 131),
+    chats-color-left: rgb(131, 240, 131),
+    chats-color-right: rgb(174, 231, 251)
+);
+
+$default-apps-params: (
+    margin-top: 50px,
+    border-radius: 6px,
+    border-weight: 6px,
+    width: clamp(200px, 90%, 700px),
+);
+
 
 
 @mixin appBox ($main-color){
     margin: auto;
-    margin-top: 50px;
-    border-radius: 6px;
-    border: 6px solid $main-color;
-    width: clamp(200px, 90%, 700px);
-
+    margin-top: map-get($default-apps-params, margin-top);
+    border-radius:  map-get($default-apps-params, border-radius);
+    border:  map-get($default-apps-params, border-weight) solid $main-color;
+    width:  map-get($default-apps-params, width);
+    animation: show .5s;
     position: relative;
-
 }
 
-@mixin genAppNav($color1, $color2){
-    background-color: $color1;
+
+
+@mixin genAppNav{
+    background-color: map-get($main-colors, header-background-and-App-borders);
     .navbar-toggler{
-        background-color: $color1;
+        background-color: map-get($main-colors, main-page-background);
+        
     }
     .navbar-nav{
         display: flex;
         justify-content: space-around;
         text-align: center;
         .friend-option{
-            color: $color2;
+            color: map-get($main-colors, main-page-background);
         }
     }
     .nav-item{
         font-weight: bold;
         .nav-link{
-            color: aliceblue;
+            color: map-get($main-colors, main-light-font-color);
         }
         .nav-link:hover{
-            color: $color5;
+            color:  map-get($main-colors, font-hover-light);
             text-decoration: none;
             
         }
@@ -45,10 +65,108 @@ $color5: #090003;
 }
 
 
+@mixin chatSpace{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+
+    .messages-space{
+        width: 100%;        
+        height: 500px;
+    }
+    .writing-messages-space{
+        display: flex;
+        align-items: center;
+        border-top: 2px solid map-get($main-colors, border-color);
+        color: map-get($main-colors, header-background-and-App-borders);
+        textarea{
+            width: 100%;
+            resize: none;
+            border: none;
+            padding: 8px;
+
+            &:focus{
+                border: none;
+                outline: none;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+@mixin message($side){
+    @if $side == 'right' {
+        display: flex;
+        justify-content: end;
+    }
+    .message-box{
+        border: 2px solid map-get($main-colors, border-color );
+        width: 80%;
+        margin: 4px 5px;
+        border-radius: 10px;
+        position: relative;
+        
+        @if $side == 'left' {
+            background-color: map-get($main-colors, chats-color-left);         
+        }
+        @else{
+            background-color: map-get($main-colors, chats-color-right);
+
+        }
+        
+        &::before{
+            
+            content: '';
+            position: absolute;
+            height: 7px;
+            width: 7px;
+            border-left:  2px solid  map-get($main-colors, border-color );
+            border-bottom:  2px solid  map-get($main-colors, border-color );
+            
+            
+            
+            @if $side == 'left' {
+                background-color: map-get($main-colors, chats-color-left);
+                left: -3.5px;
+                transform: rotateZ(45deg);
+            }
+            @else{
+                background-color: map-get($main-colors, chats-color-right);
+
+                transform: rotateZ(225deg);
+                right: -3.5px;
+            }
+            bottom: calc(50% - 3.5px);
+        }
+    }
+}
+
+
+@mixin messages{
+
+    .message-left{
+        @include message('left');
+    }
+
+    .message-right{
+        @include message('right');
+    }    
+}
+
+
+
+
+
+
 .but1{
     color: inherit;
     &:hover{
-        color: $color5;
+        color: map-get($main-colors, font-hover-light);
         cursor: pointer;
     }
     margin: 4px;
@@ -56,9 +174,9 @@ $color5: #090003;
 }
 
 .inp-text{
-    background-color: $color1;
+    background-color:  map-get($main-colors, header-background-and-App-borders);
     padding: 5px;
-    color: $color2;
+    color:  map-get($main-colors, main-light-font-color);
 }
 
 a{
@@ -70,8 +188,36 @@ a{
     width: 5px;
 }
 ::-webkit-scrollbar-thumb {
-    background: $color1;
+    background: map-get($main-colors, header-background-and-App-borders);
 }
+
+
+.App .swiper-pagination-bullet {
+    width: 83px;
+    height: 33px;
+    color: map-get($main-colors,  main-light-font-color );
+    font-size: 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+    
+    .swiper-pagination-bullet-active {
+        filter: none;
+        transform: scale(1.2);
+    }
+}
+
+.App .swiper-pagination {
+    display: flex;
+    bottom: auto;
+    top: 10px; 
+    justify-content: center;
+
+}
+
 
 @keyframes show {
     from{
