@@ -1,0 +1,80 @@
+@import '../../config';
+
+.Settings{
+    
+    background-color: map-get($main-colors, main-page-background);
+    height: 70vh;
+    @include appBox(map-get($main-colors, header-background-and-App-borders));
+    overflow-y: auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 10px;
+    display: flex;
+    border: none;
+    flex-direction: column;
+    align-items: center;
+    
+    input{
+        appearance: none;
+    }
+    
+    label{
+        cursor: pointer;
+        &:hover{
+            color: map-get($main-colors, font-hover-light);
+        }
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .color-inp-wrapper{
+        display: flex;
+        align-items: center;
+        justify-content:space-around;
+        input{
+            cursor: pointer;
+            border-radius: 50%;
+            &::-webkit-color-swatch{
+                border: none;
+                border-radius: 50%;
+
+            }
+
+            &::-webkit-color-swatch-wrapper {
+                border: none;
+                border-radius: 50px;
+                padding: 0;
+              }
+        }
+    }
+
+    >div{
+        width: 80%;
+    }
+
+    #inp-hidden-content, #inp-hidden-content-prof{
+        height: 0;
+        overflow: hidden;
+        transition: height .5s;
+        display: flex;
+        justify-content: center;
+
+    }
+
+    #password-change-button:checked ~ #inp-hidden-content{
+
+        height: 200px;
+
+    }
+
+    #profPhoto-change-button:checked ~ #inp-hidden-content-prof{
+        height: 200px;
+    }
+
+    
+
+}
+
+
+

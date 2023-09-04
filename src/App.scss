@@ -9,6 +9,11 @@
     min-height: 100vh;
     border: 4px solid map-get($main-colors, header-background-and-App-borders);
     padding-bottom: 30px;
+    @media screen and (max-width: $mobile-breakpoint) {
+        
+        padding-bottom: 0;
+    }
+
 }
 
 .box{

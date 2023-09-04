@@ -66,7 +66,7 @@
 
     }
 
-    .messages-chat{
+        .messages-chat{
         animation: .2s show;
         position: absolute;
         bottom: -290px;
@@ -104,12 +104,12 @@
         width: 40px;
         transition: .1s
     }
-
+    
     .chat-name-box{
         overflow: hidden;
         transition: 1s;
         position: relative;
-
+        
         .chatName{
             width: 120px;
         }
@@ -125,4 +125,37 @@
     align-items: center;
     cursor: pointer;
     
+}
+
+.d-lg-block{
+    position: relative;
+}
+.active-fr-box{
+    position: absolute;
+    background-color: map-get($main-colors, main-page-background );
+    width: 80%;
+    top: 40px;
+    z-index: 200;
+    animation: 2s show;
+    img{
+        width: 30px;
+        
+    }
+    
+    ul{
+        max-height: 30vh;
+        overflow-y: auto;
+        list-style: none;
+        border: 2px solid map-get($main-colors , header-background-and-App-borders);
+        padding: 0;
+        li{
+            margin: 3px 2px;
+            cursor: pointer;
+            &:hover{
+                background-color: map-get($main-colors, main-shadow );
+                filter: brightness(.6);
+            }
+        }
+
+    }
 }

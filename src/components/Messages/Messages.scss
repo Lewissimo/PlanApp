@@ -3,7 +3,9 @@
 
 .messages-box{
     @include appBox(map-get($main-colors, header-background-and-App-borders));
-    width: clamp(300px, 80%, 900px);
+    margin-top: 10px;
+    width: clamp(300px, 100%, 900px);
+    height: 500px;
     display: flex;
 
     .chats-space{

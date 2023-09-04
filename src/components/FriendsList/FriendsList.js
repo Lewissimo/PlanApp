@@ -4,12 +4,13 @@ import Search from './Search'
 import FriendChat from './FriendChat'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ActivFriendBoj from './ActivFriendBoj';
 const FriendsList = () => {
   const [isInit, setIsInit] = useState(true);
   const [isFocused, setIsFocused] = useState(); 
   
   const [screenState, setScreenState] = useState((window.innerWidthh < 992) ? 'small' : 'huge' );
-  
+  const [isACchat_visible, setIsACchat_visible] = useState(false);
   
   useEffect(()=>{
     
@@ -44,10 +45,13 @@ const FriendsList = () => {
   
 
   return (
-    <div className='friendsListBox'>
+    <div className='friendsListBox d-none d-lg-block'>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <div className='d-none d-lg-block'><Search  isFocused={isFocused} setIsFocused={setIsFocused}  chatSearch={true}/></div>
+  <div class="container-fluid chat-wrapper">
+    <div className='d-none d-lg-block'>
+      <Search  isFocused={isFocused} setIsFocused={setIsFocused} chatSearch={true} isACchat_visible={isACchat_visible} setIsACchat_visible={setIsACchat_visible}/>
+      <span style={{display: isACchat_visible ? 'block' : 'none'}}><ActivFriendBoj className='fr-list' /></span>
+    </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#friendList" aria-controls="friendList" aria-expanded="false">
       <span class="navbar-toggler-icon"></span>
     </button>

@@ -1,3 +1,8 @@
+$mobile-breakpoint: 768px;
+
+@mixin layout($device-width){
+    
+}
 
 $main-colors: (
     header-background-and-App-borders: #36366f,
@@ -31,6 +36,11 @@ $default-apps-params: (
     width:  map-get($default-apps-params, width);
     animation: show .5s;
     position: relative;
+    @media screen and (max-width: $mobile-breakpoint) {
+        
+        height: 100%;
+        margin-bottom: 0;
+      }
 }
 
 
