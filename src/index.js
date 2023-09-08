@@ -3,12 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import MyRegLogProvider from './firebase-config/AuthContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <MyRegLogProvider>
+
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </MyRegLogProvider>
+
 );
 
 // If you want to start measuring performance in your app, pass a function

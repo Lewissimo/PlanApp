@@ -18,7 +18,7 @@ const Register = ({swiper, logRegMess}) => {
     const [l_nameTextInpState, setL_NameTextInpState] = useState('');
     const [mail_textInpState, setMainTextInpState] = useState('');
     const inputLettersFormat = (e) => {
-
+        
         const deleteWhiteSpace = (text) => {
             return text.replace(/\s/g, '');
         }
@@ -52,6 +52,7 @@ const Register = ({swiper, logRegMess}) => {
     }
 
      const handleSubmit = async (e) => {
+        
         e.preventDefault();
         await setButtonState('waiting');
         const regResult = await auth.singUp(emailRef.current.value, passwordRef.current.value, repeatPasswordRef.current.value, f_nameTextInpState, l_nameTextInpState);

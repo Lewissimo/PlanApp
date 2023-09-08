@@ -4,6 +4,9 @@
     width: clamp(140px, 80%, 500px);
 }
 
+.progressSign{
+    margin: 6px;        
+}
 .App{
     height: fit-content;
     min-height: 100vh;
@@ -26,9 +29,6 @@
 }
 
 .circBox{
-    .progressSign{
-        margin: 3px;        
-    }
     display: flex;
     justify-content: center;
 }

@@ -4,8 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import EventNoteIcon from '@mui/icons-material/EventNote';
 import './Header.scss';
+import { useAuth } from '../firebase-config/AuthContext';
 const Header = () => {
-
+  const auth = useAuth();
 
 
   return (
@@ -32,7 +33,7 @@ const Header = () => {
                   <Link className="nav-link" to="/setting">Ustawienia</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/login">Wyloguj</Link>
+                  <Link onClick={auth.logOut} className="nav-link" to="/login">Wyloguj</Link>
                 </li>
             </ul>
             </div>

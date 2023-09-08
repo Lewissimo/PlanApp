@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react'
 import { useContext } from 'react'
-import { createUserWithEmailAndPassword, sendSignInLinkToEmail, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
 import {auth} from './firebase';
 
 //Creating context of auth
@@ -10,22 +10,21 @@ export const useAuth = () => {
   return useContext(AuthContext);
 }
 
-
 // creating Auth context and passing a children argument to function. This agrument reprezents all children
 // of component which will be able to use this context
 const MyRegLogProvider = ({ children }) => {
   
-
+  
   // Providing posibility to check if user is logged and to use user information included to user obcject
   const [user, setCurrentUser] = useState(null);
-  
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
-      setCurrentUser(user);
-    });
+    const unsubscribe = auth.onAuthStateChanged(Currentuser => {
+      console.log(Currentuser);
+      setCurrentUser(Currentuser);
+    },[]);
 
-    return unsubscribe;
-  }, []);
+    return ()=>{console.log('element odmontowano')};
+  },[]);
   
   // register function
   const sing_up = async (email, password, reapeatPasword, firstName, lastName) => {
@@ -38,10 +37,7 @@ const MyRegLogProvider = ({ children }) => {
     try{
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-      try {await sendSignInLinkToEmail(auth, auth.currentUser.email, {
-        url: 'http://localhost:3000/',
-        handleCodeInApp: true,
-      });
+      try {await sendEmailVerification(user);
       await updateProfile(user,{
         displayName: 'asdasdgis',
         photoURL: null
@@ -51,7 +47,7 @@ const MyRegLogProvider = ({ children }) => {
         console.log(err);
       }
       // user is signed out because I dont want to sign in user automaticly
-      // await signOut;
+      await signOut(auth);
       return 0;
     
     }
@@ -71,27 +67,36 @@ const MyRegLogProvider = ({ children }) => {
     return 1;
   }
     
-  }
-  
+}
+
   // Loggin function
   const sing_In = async (email, password) => {
     try{
       // sign in
+      // await auth.setPersistence(browserSessionPersistence);
       await signInWithEmailAndPassword(auth, email, password);
-
-      if(!user.emailVerified) return -1;
+      const currentUser = auth.currentUser;
+      if(!currentUser.emailVerified) return -1;
+      
       return 0;
     }
     catch(err){
       if (err.code === 'auth/network-request-failed') return 2;
-
+      console.log(err);
       return 1;
     }
   }
   
+
+  const logOut = () => {
+    signOut(auth);
+  }
+
   const authFunctions = {
     'singUp': sing_up,
     'singIn': sing_In,
+    'logOut': logOut,
+    'setUser': setCurrentUser,
     'currentUser': user
   };
   return (
