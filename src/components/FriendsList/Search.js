@@ -17,7 +17,7 @@ const Search = ({isFocused, setIsFocused, chatSearch, setIsACchat_visible}) => {
   }
 
   return (
-    <div class="navbar-brand">
+    <div className="navbar-brand">
         {chatSearch?
             <input style={{ width: isFocused ? '200px' : '60px' }} onFocus={onFocusHandle} onBlur={onBlurHandle} className='f-search-inp search-inp inp-text' type='search' />
           :

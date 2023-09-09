@@ -8,7 +8,6 @@ import MyRegLogProvider from './firebase-config/AuthContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <MyRegLogProvider>
-
     <React.StrictMode>
       <App />
     </React.StrictMode>

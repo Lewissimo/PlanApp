@@ -3,14 +3,13 @@ import { Card, Button, Form} from 'react-bootstrap';
 import './App.scss';
 import { useAuth } from './firebase-config/AuthContext';
 import CircularProgress from '@mui/material/CircularProgress';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
 
 
 
 
 const SingIn = ({logRegMess}) => {
-    
     
     const auth = useAuth();
     
@@ -30,7 +29,6 @@ const SingIn = ({logRegMess}) => {
 
     const handleOnSubmit = async (e) => {
         e.preventDefault();
-        console.log('2')
         await setButtonState('waiting')
         const singInResult = await auth.singIn(emailRef.current.value, passwordRef.current.value);
         
@@ -66,6 +64,7 @@ const SingIn = ({logRegMess}) => {
                             Hasło
                         </Form.Label>
                         <Form.Control type='password' ref={ passwordRef } required />
+                        <Link to='../' >basjdkfksdnafjsnjk</Link>
                         {buttonState==='waiting'?<div className='circBox'><CircularProgress className='progressSign' /></div>:<Button type='submit' className={buttonState==='clicked'?'clicked w-100 mt-3':'w-100 mt-3'}>Logowanie</Button>}
                     </Form.Group>
                 </Form>

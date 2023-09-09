@@ -46,35 +46,35 @@ const FriendsList = () => {
 
   return (
     <div className='friendsListBox d-none d-lg-block'>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid chat-wrapper">
+  <nav className="navbar navbar-expand-lg bg-body-tertiary">
+  <div className="container-fluid chat-wrapper">
     <div className='d-none d-lg-block'>
       <Search  isFocused={isFocused} setIsFocused={setIsFocused} chatSearch={true} isACchat_visible={isACchat_visible} setIsACchat_visible={setIsACchat_visible}/>
       <span style={{display: isACchat_visible ? 'block' : 'none'}}><ActivFriendBoj className='fr-list' /></span>
     </div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#friendList" aria-controls="friendList" aria-expanded="false">
-      <span class="navbar-toggler-icon"></span>
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#friendList" aria-controls="friendList" aria-expanded="false">
+      <span className="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="friendList">
-      <ul class="navbar-nav">
+    <div className="collapse navbar-collapse" id="friendList">
+      <ul className="navbar-nav">
   
         <li className='nav-item d-block d-lg-none'>
           <Search isFocused={isFocused} setIsFocused={setIsFocused} chatSearch={true}/>
         </li>
 
-        <li class="nav-item">
+        <li className="nav-item">
           <FriendChat isFocused = {isFocused} />
         </li>
-        <li class="nav-item">
+        <li className="nav-item">
           <FriendChat isFocused = {isFocused} />
         </li>
-        <li class="nav-item">
+        <li className="nav-item">
           <FriendChat isFocused = {isFocused} />
         </li>
-        <li class="nav-item">
+        <li className="nav-item">
           <FriendChat isFocused = {isFocused} />
         </li>
-        <li class="nav-item">
+        <li className="nav-item">
             <div className='switchArrow' onClick={()=>{setIsFocused(!isFocused)}}>
               {isFocused ? <ArrowBackIosNewIcon className='d-none d-lg-block' /> : <ArrowForwardIosIcon className='d-none d-lg-block' />}
             </div>

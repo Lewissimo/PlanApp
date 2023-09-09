@@ -75,6 +75,7 @@ const MyRegLogProvider = ({ children }) => {
       // sign in
       // await auth.setPersistence(browserSessionPersistence);
       await signInWithEmailAndPassword(auth, email, password);
+      await sessionStorage.setItem('isLogged', 'true');
       const currentUser = auth.currentUser;
       if(!currentUser.emailVerified) return -1;
       
@@ -90,14 +91,21 @@ const MyRegLogProvider = ({ children }) => {
 
   const logOut = () => {
     signOut(auth);
+    sessionStorage.setItem('isLogged', 'false');
+
+  }
+
+  const getCurrentUser = ()=>{
+    return auth.currentUser;
   }
 
   const authFunctions = {
     'singUp': sing_up,
     'singIn': sing_In,
     'logOut': logOut,
-    'setUser': setCurrentUser,
-    'currentUser': user
+    'getUser': getCurrentUser,
+    'currentUser': user,
+
   };
   return (
     <AuthContext.Provider value={authFunctions}>

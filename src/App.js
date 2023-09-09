@@ -14,28 +14,28 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter, Navigate, Route, Routes,  } from 'react-router-dom';
 import { useAuth } from './firebase-config/AuthContext';
 function App() {
-  useEffect(()=>{
-    console.log('something');
-  })
-
+  
   const auth = useAuth();
+  
   const ProtectedRouteUnlogged = ({children}) =>{
-    if(!auth.currentUser){
-      console.log(auth.currentUser);
-      return <Navigate to='/login' />
-    }
-    return children
+    const isLogged = sessionStorage.getItem('isLogged');
+    useEffect(()=>{
+      if(auth.currentUser){
+        return children;
+      }
+
+    }, [auth.currentUser])
+      
+      if(!auth.currentUser && isLogged){
+        return <Navigate to='/login' />
+      }
+      
+      
   }
 
   const [logRegMess, setLogRegMess] = useState('');
   const app_options_menu = ['Rejestracja', 'Logowanie'];
   const [swiper, setSwiper] = useState(null);
-  // const userToken = sessionStorage.getItem('userToken');
-  // if(userToken){
-
-  //   auth.singInWithToken(userToken);
-  // }
-
   return (
       <div className='App'>
         

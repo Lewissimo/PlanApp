@@ -27,7 +27,7 @@ const FindFriends = () => {
             slidesPerView={1}
             onSwiper={setSwiper}
             pagination={{ clickable: true, renderBullet: (index, className) => {
-            return `<span class="${className}">${app_options_menu[index]}</span>`;
+            return `<span className="${className}">${app_options_menu[index]}</span>`;
             } }}
 
             >
