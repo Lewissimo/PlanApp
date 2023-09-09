@@ -75,7 +75,7 @@ const MyRegLogProvider = ({ children }) => {
       // sign in
       // await auth.setPersistence(browserSessionPersistence);
       await signInWithEmailAndPassword(auth, email, password);
-      await sessionStorage.setItem('isLogged', 'true');
+      await localStorage.setItem('isLogged', 'true');
       const currentUser = auth.currentUser;
       if(!currentUser.emailVerified) return -1;
       
@@ -91,7 +91,7 @@ const MyRegLogProvider = ({ children }) => {
 
   const logOut = () => {
     signOut(auth);
-    sessionStorage.setItem('isLogged', 'false');
+    localStorage.setItem('isLogged', 'false');
 
   }
 

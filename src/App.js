@@ -10,24 +10,22 @@ import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import Register from './Register';
 import SingIn from './SingIn';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { BrowserRouter, Navigate, Route, Routes,  } from 'react-router-dom';
 import { useAuth } from './firebase-config/AuthContext';
 function App() {
   
   const auth = useAuth();
-  
+
+
   const ProtectedRouteUnlogged = ({children}) =>{
-    const isLogged = sessionStorage.getItem('isLogged');
-    useEffect(()=>{
+    const isLogged = localStorage.getItem('isLogged');
+
+    if(!auth.currentUser && !JSON.parse(isLogged)){
+        return <Navigate to='/login' />;
+      }
       if(auth.currentUser){
         return children;
-      }
-
-    }, [auth.currentUser])
-      
-      if(!auth.currentUser && isLogged){
-        return <Navigate to='/login' />
       }
       
       
@@ -53,6 +51,8 @@ function App() {
                   modules={[ Pagination, A11y]}
                   spaceBetween={50}
                   slidesPerView={1}
+                  initialSlide={2}
+                  direction="horizontal"
                   onSwiper={setSwiper}
                   pagination={{ clickable: true, renderBullet: (index, className) => {
                   return `<span class="${className}">${app_options_menu[index]}</span>`;
