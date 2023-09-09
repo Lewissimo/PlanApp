@@ -10,7 +10,7 @@ export const useAuth = () => {
   return useContext(AuthContext);
 }
 
-// creating Auth context and passing a children argument to function. This agrument reprezents all children
+// creating Auth context and passign a children argument to function. This agrument reprezents all children
 // of component which will be able to use this context
 const MyRegLogProvider = ({ children }) => {
   
@@ -27,7 +27,7 @@ const MyRegLogProvider = ({ children }) => {
   },[]);
   
   // register function
-  const sing_up = async (email, password, reapeatPasword, firstName, lastName) => {
+  const sign_up = async (email, password, reapeatPasword, firstName, lastName) => {
   
   
   if (password === reapeatPasword){
@@ -70,7 +70,7 @@ const MyRegLogProvider = ({ children }) => {
 }
 
   // Loggin function
-  const sing_In = async (email, password) => {
+  const sign_In = async (email, password) => {
     try{
       // sign in
       // await auth.setPersistence(browserSessionPersistence);
@@ -100,8 +100,8 @@ const MyRegLogProvider = ({ children }) => {
   }
 
   const authFunctions = {
-    'singUp': sing_up,
-    'singIn': sing_In,
+    'signUp': sign_up,
+    'signIn': sign_In,
     'logOut': logOut,
     'getUser': getCurrentUser,
     'currentUser': user,

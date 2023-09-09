@@ -55,7 +55,7 @@ const Register = ({swiper, logRegMess}) => {
         
         e.preventDefault();
         await setButtonState('waiting');
-        const regResult = await auth.singUp(emailRef.current.value, passwordRef.current.value, repeatPasswordRef.current.value, f_nameTextInpState, l_nameTextInpState);
+        const regResult = await auth.signUp(emailRef.current.value, passwordRef.current.value, repeatPasswordRef.current.value, f_nameTextInpState, l_nameTextInpState);
         if (regResult === 0) {
             console.log(auth.user);
 
