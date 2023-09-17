@@ -1,0 +1,5 @@
+@import '../../config';
+
+.calendar{
+    @include appBox(map-get($main-colors, header-background-and-App-borders));
+}

@@ -203,6 +203,7 @@ a{
 
 
 .App .swiper-pagination-bullet {
+    border-radius: 5px;
     width: 83px;
     height: 33px;
     color: map-get($main-colors,  main-light-font-color );

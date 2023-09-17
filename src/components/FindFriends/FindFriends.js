@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import photo from '../FriendsList/kamil.jpg'
-import './Friends.scss'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, A11y } from 'swiper/modules';
@@ -8,7 +7,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
-
+import './Friends.scss'
 
 import PotentialFriendList from './PotentialFriendList';
 import MyFriendList from './MyFriendList';
@@ -27,7 +26,7 @@ const FindFriends = () => {
             slidesPerView={1}
             onSwiper={setSwiper}
             pagination={{ clickable: true, renderBullet: (index, className) => {
-            return `<span className="${className}">${app_options_menu[index]}</span>`;
+            return `<span class="${className}">${app_options_menu[index]}</span>`;
             } }}
 
             >

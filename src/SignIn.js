@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-const SignIn = ({logRegMess, handleOnWheel}) => {
+const SignIn = ({logRegMess, removeWheelHandle}) => {
     
     const auth = useAuth();
     
@@ -37,7 +37,7 @@ const SignIn = ({logRegMess, handleOnWheel}) => {
             animButton();
         }
         if(signInResult === 0){
-            window.removeEventListener('wheel', handleOnWheel);
+            await removeWheelHandle();
             navigate('/');
         }
         if(signInResult === 1){

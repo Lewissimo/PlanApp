@@ -16,7 +16,7 @@ const Home = () => {
             <h3 className='option-title'>Utwórz zakupy</h3>
         </div>
       </Link>
-      <Link to='/zakupyapp' className='option-link col-12 col-sm-6 col-lg-4 col-xl-3'>
+      <Link to='/calendar' className='option-link col-12 col-sm-6 col-lg-4 col-xl-3'>
         <div className='option'>
             <CalendarMonthIcon className='shopApp-icon'/>
             <h3 className='option-title'>KalendarzApp</h3>

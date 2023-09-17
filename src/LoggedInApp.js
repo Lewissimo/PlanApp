@@ -9,6 +9,7 @@ import Messages from './components/Messages/Messages';
 import ShopApp from './components/shoapp/ShopApp';
 import { Routes, Route} from 'react-router-dom';
 import Settings from './components/Settings/Settings';
+import CalendarApp from './components/calendarApp/CalendarApp';
 
 const LoggedInApp = () => {
 
@@ -27,7 +28,7 @@ const LoggedInApp = () => {
         
         
         <Route path='/shopapp' element={<ShopApp />} />
-
+        <Route path='/calendar' element={<CalendarApp/>} />
 
 
       </Routes>
