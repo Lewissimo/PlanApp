@@ -98,7 +98,7 @@ const CalendarOption = () => {
   
   const generateCalendar = (since, to) =>{
 
-    
+    to++;
     const years = [];
 
     for(let i = 0; to - since > i; i++){
