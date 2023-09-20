@@ -110,7 +110,7 @@ const CalendarOption = () => {
 
     console.log(years);
   }
-  generateCalendar(2020, 2033);
+  
   return (
     <div className='option-box'>
     </div>

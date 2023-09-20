@@ -38,7 +38,6 @@ $default-apps-params: (
     position: relative;
     @media screen and (max-width: $mobile-breakpoint) {
         
-        height: 100%;
         margin-bottom: 0;
       }
 }
@@ -46,6 +45,10 @@ $default-apps-params: (
 
 
 @mixin genAppNav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 65px;
     background-color: map-get($main-colors, header-background-and-App-borders);
     .navbar-toggler{
         background-color: map-get($main-colors, main-page-background);

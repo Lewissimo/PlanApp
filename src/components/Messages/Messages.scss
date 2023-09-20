@@ -7,7 +7,10 @@
     width: clamp(300px, 100%, 900px);
     height: 500px;
     display: flex;
-
+    @media screen and (max-width: $mobile-breakpoint) {
+        height: calc(100vh - 65px);
+        margin-top: 0;
+    }
     .chats-space{
         background-color: map-get($main-colors, header-background-and-App-borders);
         width: 180px;
