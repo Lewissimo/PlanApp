@@ -1,8 +1,8 @@
 import React from 'react'
-const currentDate = {day: 15, month: 9, year: 2023}
 
+const CaledarSpace = () => {
+  const currentDate = {day: 15, month: 9, year: 2023}
 
-const CalendarOption = () => {
   class year{
     constructor(isLeap, firstWeekDay, yearNumber){
       this.isLeap = isLeap;
@@ -108,12 +108,18 @@ const CalendarOption = () => {
     }
     
 
-    console.log(years);
+    return years;
   }
-  
+
+  const drawCalendar = () => {
+    const calendarStructure = generateCalendar(2021, 2100);
+    
+  }
   return (
-    <div className='option-box'>
+    <div>
+        
     </div>
   )
 }
-export default CalendarOption
+
+export default CaledarSpace
