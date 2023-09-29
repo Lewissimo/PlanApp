@@ -40,3 +40,14 @@
 .App{
     height: fit-content !important;
 }
+.days_box{
+    display: grid;
+    grid-template-columns: repeat(7, 12%);
+    justify-content: center;
+    text-align: center;
+    .calendar_day{
+        background-color: map-get($main-colors, header-background-and-App-borders);
+        color: map-get($main-colors, main-light-font-color);
+        margin: 2px;
+    }
+}

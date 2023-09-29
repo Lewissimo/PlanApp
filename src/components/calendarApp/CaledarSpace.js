@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, A11y } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import 'swiper/css/scrollbar';
+import './Calendar.scss';
+//This code provide whole calendar logic
+
+
+
+
 
 const CaledarSpace = () => {
   const currentDate = {day: 15, month: 9, year: 2023}
-
+  //class year allow as to create year with corrent amount of months and days in months
   class year{
     constructor(isLeap, firstWeekDay, yearNumber){
       this.isLeap = isLeap;
@@ -12,11 +24,19 @@ const CaledarSpace = () => {
     }
 
     #whichWeekDays = () => {
-      const feb = this.isLeap ? 1 : 0;
+      //everything is based on mathematical formulas
+
+      
+      const feb = this.isLeap ? 1 : 0; 
+      //When month has 31 days then next month start with first week day moved free days forward
+      //When has 30 days then 2 days forward
+      //In February, it depends on whether the year is leap or not, then it is moved zero or one day forward.
       const addDaysTab = {january: 0, february: 3, march: feb + 3, april: feb + 6, may: feb + 8, juny: feb + 11, julie: feb + 13, august:  feb + 16, september: feb + 19, october: feb + 21, november: feb + 24, december: feb + 26}
       const firstMonthsDayTab = [];
 
       for(const [month, value] of Object.entries(addDaysTab)){
+        //comming trough the aadDaysTab calculate number of first weekDay in every month
+        //formula: 
         const weekDay = (value + this.firstWeekDay) % 7 === 0 ? 7 : (value + this.firstWeekDay) % 7;
         firstMonthsDayTab.push(weekDay);
       }
@@ -58,7 +78,7 @@ const CaledarSpace = () => {
       const month = [];
       for(let i = 0; this.amountOfDays > i; i++){
         const weekDayNum = (i + 1 + this.firstWeekDay) % 7 === 0 ? 7 : (i + 1 + this.firstWeekDay) % 7;
-        month.push({weekDayName: this.weekDaysNames[weekDayNum - 1], events: this.events});
+        month.push({weekDayNum: weekDayNum, weekDayName: this.weekDaysNames[weekDayNum - 1], events: this.events});
       }
       return month;
     }
@@ -111,13 +131,167 @@ const CaledarSpace = () => {
     return years;
   }
 
-  const drawCalendar = () => {
-    const calendarStructure = generateCalendar(2021, 2100);
+ 
+  const drawCalendar = (year_start, year_end) => {
+    const yearStart = year_start;
+    const yearEnd = year_end;
+    const calendarStructure = generateCalendar(yearStart, yearEnd);
+
+
     
-  }
-  return (
-    <div>
+    class day{
+      
+      constructor(type, month, year, day_of_month, month_string){
         
+        this.type = type;
+        this.year = year;
+        this.month = month_string;
+        this.day_of_month = day_of_month;
+        if(month){
+
+          this.id = year.toString() + month.toString() + day_of_month.toString();
+        }
+        this.spentMoney = 0;
+        this.meals = [];
+      }
+      
+      
+      
+      
+      #add_note = (note) => {
+        console.log(this.id); 
+      }
+      
+      set spentMoney_(newspentMoney){
+        this.spentMoney = newspentMoney;
+      }
+      
+      add_meal(name, cost){
+        this.meals.push({name: name, cost: cost});
+      }
+      
+      create_day = () =>{
+        
+        if(this.type !== 'current'){
+          return(
+            <div className={`calendar_day ${this.type === 'before' ? 'calendar_day_before' : 'calendar_day_after'}`}>
+              <h3>{this.day_of_month}</h3>
+            </div>
+          )
+        }
+        else{
+          
+          
+          return(
+            <div className='calendar_day' id={this.id}>
+            <h3>{this.day_of_month}</h3>
+            <h2>{this.spentMoney}</h2>
+            <div className='meals_box'>
+              <ul>
+                {this.meals.map(
+                  (element)=>{
+                    return(
+                      <li>`${element.name} ${element.cost}`</li>
+                      )
+                    })}
+              </ul>
+            </div>
+          </div>
+        )
+      } 
+      
+    }
+  }
+  
+  let swiper_pattern_slides = [];
+  let pre_days = 31;
+  
+  calendarStructure.map((year, index_year)=>{
+    const current_year = yearStart + index_year;
+    year.map((month, index_month)=>{
+      const current_month = index_month + 1;
+      let monthDays = [];
+      let first_day_month = month[0].weekDayNum;
+      for(let i = 0; 42 > i; i++){
+        
+        if(first_day_month - 1 > i){
+          const dayObject = new day('before', null, null, pre_days - first_day_month + i + 2)
+          monthDays.push(dayObject.create_day());
+        }
+        else if((month[i - first_day_month + 1]) && (i - first_day_month + 1 < month.length)){
+          const f_weekDay_tab = month_days(false);
+          const f_weekDay = f_weekDay_tab[current_month - 1].name;
+          
+          
+          const dayObject = new day('current', current_month, current_year, i - first_day_month + 2, f_weekDay)
+          
+          monthDays.push(dayObject.create_day());
+          
+        }
+        else {
+          const dayObject = new day('after', null, null, i - first_day_month + 2 - month.length)
+          monthDays.push(dayObject.create_day())
+        }
+      }
+      pre_days = month.length;
+      swiper_pattern_slides.push(monthDays);
+      pre_days = month.length;
+    })
+  })    
+  
+  
+  return swiper_pattern_slides;
+  
+}
+
+const year_start = 2021;
+const year_end = 2022;
+const calendar = drawCalendar(year_start, year_end);
+const yearsArray = [];
+for(let i = 0; calendar.length >= i; i++){
+  yearsArray.push(month_days(false)[(i + 1) % 12].name);
+}
+
+const [swiper, setSwiper] = useState(null);
+return (
+  <div>
+    <Swiper
+      onSlideChange={()=>{
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach((input) => {
+          input.blur();
+        })
+      }}
+      className='box-form-swiper'
+      modules={[ Pagination, A11y]}
+      spaceBetween={50}
+      slidesPerView={1}
+      initialSlide={2}
+      direction="horizontal"
+      onSwiper={setSwiper}
+      pagination={{ clickable: true, renderBullet: (index, className) => {
+      return `<span class="${className}">${yearsArray[index]}</span>`;
+      } }}
+
+    >
+        <div>
+        {calendar.map((element, index)=>{
+          return(
+        <SwiperSlide>
+            <div>
+            <h1>{month_days(false)[(index + 1) % 12].name}</h1>
+              <div className='days_box'>
+                {element.map((el)=>{
+                  return el;
+                })}
+              </div>
+            </div>
+        </SwiperSlide>
+          ) 
+        })}
+        </div>
+    </Swiper>
+
     </div>
   )
 }

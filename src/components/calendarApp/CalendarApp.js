@@ -1,6 +1,7 @@
 import React from 'react'
 import './Calendar.scss'
 import Calendar from './Calendar';
+import CaledarSpace from './CaledarSpace';
 const CalendarApp = () => {
   return (
     <div className='calendar'>
@@ -10,6 +11,7 @@ const CalendarApp = () => {
             <div className='calendar-option col-12 col-sm-6 col-lg-4 col-xl-3'><Calendar/></div>
             <div className='calendar-option col-12 col-sm-6 col-lg-4 col-xl-3'><Calendar/></div>
             <div className='calendar-option col-12 col-sm-6 col-lg-4 col-xl-3'><Calendar/></div>
+            <CaledarSpace />
         </div>
     </div>
   )
