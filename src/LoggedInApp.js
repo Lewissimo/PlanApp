@@ -10,6 +10,7 @@ import ShopApp from './components/shoapp/ShopApp';
 import { Routes, Route} from 'react-router-dom';
 import Settings from './components/Settings/Settings';
 import CalendarApp from './components/calendarApp/CalendarApp';
+import CaledarSpace from './components/calendarApp/CaledarSpace';
 
 const LoggedInApp = () => {
 
@@ -24,7 +25,7 @@ const LoggedInApp = () => {
         <Route path='/messages' element={<Messages />} />
         <Route path='/friends' element={<FindFriends />} />
         <Route path='/setting' element={<Settings />} />
-        
+        <Route path='/calendar_1' element={<CaledarSpace />} /> 
         
         
         <Route path='/shopapp' element={<ShopApp />} />

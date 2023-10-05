@@ -1,6 +1,6 @@
 @import '../../config';
 
-.calendar{
+.App .calendar{
     @include appBox(map-get($main-colors, header-background-and-App-borders));
     border: none;
     width: clamp(200px, 90%, 1500px);
@@ -9,6 +9,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
     h3{
         padding: 20px 0;
     }
@@ -34,20 +35,55 @@
             width: 90px;
         }
 
+        
     }
+    
 
 }
 .App{
     height: fit-content !important;
 }
 .days_box{
+    margin-top: 85px;
     display: grid;
     grid-template-columns: repeat(7, 12%);
     justify-content: center;
     text-align: center;
     .calendar_day{
+        height: 130px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
         background-color: map-get($main-colors, header-background-and-App-borders);
         color: map-get($main-colors, main-light-font-color);
         margin: 2px;
+    }
+}
+
+.App .ex_calendar{
+    .calendar_day_current{
+        cursor: pointer;
+        transition: .1s;
+        &:hover{
+            background-color: black;
+        }
+    }
+    h1{
+        text-transform: capitalize;
+    }
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    .swiper-pagination{
+        scroll-behavior: smooth;
+        top: 40px;
+        overflow: auto;
+        justify-content: unset;
+  
+    }
+    .swiper-pagination-bullet{
+        min-width: 95px;
+        margin: 10px;
     }
 }
